@@ -84,7 +84,9 @@ def plist_request(host, method, url, body, headers):
         plist_data = plistlib.readPlistFromString(data)
     except:
         plist_data = None
-
+    
+    print '[info] plist_data = ', str(plist_data)
+    print '[info] status = ', str(response.status)
     if response.status != 200:
         if plist_data is None:
             print "Request %s returned code %d" % (url, response.status)
