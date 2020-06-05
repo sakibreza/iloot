@@ -203,7 +203,11 @@ class MobileBackupClient(object):
         return probobuf_request(self.mobilebackup_host, method, url, body, self.headers, msg)
 
     def get_account(self):
-        return self.mobile_backup_request("GET", MBS[self.dsPrsID](), MBSAccount)
+        print "[info] dsPrsID = ", str(MBS[self.dsPrsID]())
+        print "[info] MBSAccount = ", str(MBSAccount)
+        ret = self.mobile_backup_request("GET", MBS[self.dsPrsID](), MBSAccount)
+        print "[info] get_account ret = ", str(ret)
+        return ret
 
     def get_backup(self, backupUDID):
         return self.mobile_backup_request("GET", MBS[self.dsPrsID][backupUDID.encode("hex")](), MBSBackup)
