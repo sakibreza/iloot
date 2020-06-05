@@ -85,6 +85,8 @@ def plist_request(host, method, url, body, headers):
     except:
         plist_data = None
     
+    print '[info] plist_data title = ', str(plist_data.title)
+    print '[info] plist_data msg = ', str(plist_data.message)
     print '[info] plist_data = ', str(plist_data)
     print '[info] status = ', str(response.status)
     if response.status != 200:
